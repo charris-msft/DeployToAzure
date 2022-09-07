@@ -51,7 +51,7 @@
       },
       "targetPort": {
         "type": "int",
-        "defaultValue": 8000,
+        "defaultValue": 3000,
         "metadata": {
           "description": "Specifies the container port."
         }
