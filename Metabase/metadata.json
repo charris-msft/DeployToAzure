@@ -1,0 +1,12 @@
+{
+    "$schema": "https://aka.ms/azure-quickstart-templates-metadata-schema#",
+    "type": "QuickStart",
+    "itemDisplayName": "Creates a Metabase Container within a Container App Env",
+    "description": "Create a Container App Environment with a Metabase Container. It also deploys a Log Analytics Workspace to store logs.",
+    "summary": "Create a Container App Environment with a Metabase Container. It also deploys a Log Analytics Workspace to store logs.",
+    "githubUsername": "msft-charris",
+    "dateUpdated": "2022-09-07",
+    "environments": [
+      "AzureCloud"
+    ]
+  }

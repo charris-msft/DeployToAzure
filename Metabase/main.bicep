@@ -16,16 +16,16 @@ param containerAppLogAnalyticsName string = 'containerapp-log-${uniqueString(res
 param location string //cannot use resourceGroup().location since it's not available in most of regions
 
 @description('Specifies the docker container image to deploy.')
-param containerImage string = 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
+param containerImage string = 'registry.hub.docker.com/metabase/metabase:latest'
 
 @description('Specifies the container port.')
-param targetPort int = 80
+param targetPort int = 3000
 
 @description('Number of CPU cores the container can use. Can be with a maximum of two decimals.')
-param cpuCore string = '0.5'
+param cpuCore string = '2'
 
 @description('Amount of memory (in gibibytes, GiB) allocated to the container up to 4GiB. Can be with a maximum of two decimals. Ratio with CPU cores must be equal to 2.')
-param memorySize string = '1'
+param memorySize string = '4'
 
 @description('Minimum number of replicas that will be deployed')
 @minValue(0)
@@ -35,7 +35,7 @@ param minReplicas int = 1
 @description('Maximum number of replicas that will be deployed')
 @minValue(0)
 @maxValue(25)
-param maxReplicas int = 3
+param maxReplicas int = 1
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2020-10-01' = {
   name: containerAppLogAnalyticsName

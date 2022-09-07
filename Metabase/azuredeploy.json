@@ -44,28 +44,28 @@
       },
       "containerImage": {
         "type": "string",
-        "defaultValue": "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
+        "defaultValue": "registry.hub.docker.com/metabase/metabase:latest",
         "metadata": {
           "description": "Specifies the docker container image to deploy."
         }
       },
       "targetPort": {
         "type": "int",
-        "defaultValue": 80,
+        "defaultValue": 8000,
         "metadata": {
           "description": "Specifies the container port."
         }
       },
       "cpuCore": {
         "type": "string",
-        "defaultValue": "0.5",
+        "defaultValue": "2",
         "metadata": {
           "description": "Number of CPU cores the container can use. Can be with a maximum of two decimals."
         }
       },
       "memorySize": {
         "type": "string",
-        "defaultValue": "1",
+        "defaultValue": "4",
         "metadata": {
           "description": "Amount of memory (in gibibytes, GiB) allocated to the container up to 4GiB. Can be with a maximum of two decimals. Ratio with CPU cores must be equal to 2."
         }
@@ -81,7 +81,7 @@
       },
       "maxReplicas": {
         "type": "int",
-        "defaultValue": 3,
+        "defaultValue": 1,
         "maxValue": 25,
         "minValue": 0,
         "metadata": {
