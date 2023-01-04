@@ -192,7 +192,7 @@
         }
     },
     "variables": {
-        "databaseUrl": "[format('https://{0}.postgres.database.azure.com', parameters('databaseName'))]"
+        "databaseUrl": "[format('{0}.postgres.database.azure.com', parameters('databaseName'))]"
 
     },
     "resources": [
