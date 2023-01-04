@@ -131,7 +131,7 @@
         },
         "administratorLogin": {
             "type": "secureString",
-            "defaultValue": "TODOReplaceWithSecureString",
+            "defaultValue": "TODOReplace",
             "minLength": 1,
             "metadata": {
                 "description": "Database administrator login name"
