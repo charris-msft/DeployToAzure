@@ -191,11 +191,15 @@
             }
         }
     },
+    "variables": {
+        "databaseUrl": "[format('https://{0}.postgres.database.azure.com', parameters('databaseName'))]"
+
+    },
     "resources": [
         {
             "type": "Microsoft.DBforPostgreSQL/flexibleServers",
             "apiVersion": "2021-06-01",
-            "name": "[parameters('containerAppEnvName')]",
+            "name": "[parameters('databaseName')]",
             "location": "[parameters('location')]",
             "sku": {
                 "name": "[parameters('postgresFlexibleServersSkuName')]",
@@ -291,7 +295,7 @@
                                 //        to env variables and use them below
                                 {
                                     "name": "PGHOST",
-                                    "value": "[parameters('containerAppEnvName')]"
+                                    "value": "[variables('databaseUrl')]"
                                 },
                                 {
                                     "name": "PGPORT",
