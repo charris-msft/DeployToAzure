@@ -239,7 +239,10 @@
             "properties": {
                 "value": "[parameters('postgresExtensions')]",
                 "source": "user-override"
-            }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', parameters('databaseName'))]"
+            ]
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces",
