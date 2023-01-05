@@ -189,11 +189,15 @@
             "metadata": {
                 "description": "The mode to create a new PostgreSQL server"
             }
+        },
+        "postgresExtensions": {
+            "defaultValue": "citext,uuid-ossp",
+            "type": "String"
         }
     },
+
     "variables": {
         "databaseUrl": "[format('{0}.postgres.database.azure.com', parameters('databaseName'))]"
-
     },
     "resources": [
         {
@@ -205,9 +209,12 @@
                 "name": "[parameters('postgresFlexibleServersSkuName')]",
                 "tier": "[parameters('postgresFlexibleServersSkuTier')]"
             },
+            // TODO - Add CITEXT extension
             "properties": {
                 "administratorLogin": "[parameters('administratorLogin')]",
                 "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                "value": "[parameters('postgresExtensions')]",
+                "source": "user-override",
                 "createMode": "[parameters('createMode')]",
                 "storage": {
                     "storageSizeGB": 32
