@@ -193,6 +193,10 @@
         "postgresExtensions": {
             "defaultValue": "citext,uuid-ossp",
             "type": "String"
+        },
+        "postgresRequireSSL": {
+            "defaultValue": "OFF",
+            "type": "String"
         }
     },
 
@@ -238,6 +242,18 @@
             "name": "[concat(parameters('databaseName'), '/azure.extensions')]",
             "properties": {
                 "value": "[parameters('postgresExtensions')]",
+                "source": "user-override"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', parameters('databaseName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.DBforPostgreSQL/flexibleServers/configurations",
+            "apiVersion": "2021-06-01",
+            "name": "[concat(parameters('databaseName'), '/require_secure_transport')]",
+            "properties": {
+                "value": "[parameters('postgresRequireSSL')]",
                 "source": "user-override"
             },
             "dependsOn": [
