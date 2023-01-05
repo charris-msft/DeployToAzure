@@ -209,12 +209,9 @@
                 "name": "[parameters('postgresFlexibleServersSkuName')]",
                 "tier": "[parameters('postgresFlexibleServersSkuTier')]"
             },
-            // TODO - Add CITEXT extension
             "properties": {
                 "administratorLogin": "[parameters('administratorLogin')]",
                 "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-                "value": "[parameters('postgresExtensions')]",
-                "source": "user-override",
                 "createMode": "[parameters('createMode')]",
                 "storage": {
                     "storageSizeGB": 32
@@ -233,6 +230,15 @@
                     "startMinute": 0
                 },
                 "version": "[parameters('postgresFlexibleServersversion')]"
+            }
+        },
+        {
+            "type": "Microsoft.DBforPostgreSQL/flexibleServers/configurations",
+            "apiVersion": "2021-06-01",
+            "name": "[concat(parameters('databaseName'), '/azure.extensions')]",
+            "properties": {
+                "value": "[parameters('postgresExtensions')]",
+                "source": "user-override"
             }
         },
         {
