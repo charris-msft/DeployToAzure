@@ -452,9 +452,9 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.App/managedEnvironments', parameters('containerAppEnvName'))]",
-                "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers',parameters('databaseName'))]",
-                "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers/configurations',concat(parameters('databaseName'), '/require_secure_transport'))]",
-                "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers/configurations',concat(parameters('databaseName'), '/azure.extensions'))]"
+                "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', parameters('databaseName'))]",
+                "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers/configurations', parameters('databaseName'), 'require_secure_transport')]",
+                "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers/configurations', parameters('databaseName'), 'azure.extensions')]"
             ]
         }
     ],
