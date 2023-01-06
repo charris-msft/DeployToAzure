@@ -218,7 +218,9 @@
                 "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
                 "createMode": "[parameters('createMode')]",
                 "network": {
-                    "publicNetworkAccess": "Enabled"
+                    "publicNetworkAccess": "Enabled",
+                    "delegatedSubnetResourceId": "null",
+                    "privateDnsZoneArmResourceId": "null"
                 },
 
                 "storage": {
