@@ -217,6 +217,10 @@
                 "administratorLogin": "[parameters('administratorLogin')]",
                 "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
                 "createMode": "[parameters('createMode')]",
+                "network": {
+                    "publicNetworkAccess": "Enabled"
+                },
+
                 "storage": {
                     "storageSizeGB": 32
                 },
