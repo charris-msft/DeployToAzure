@@ -219,8 +219,8 @@
                 "createMode": "[parameters('createMode')]",
                 "network": {
                     "publicNetworkAccess": "Enabled",
-                    "delegatedSubnetResourceId": "null",
-                    "privateDnsZoneArmResourceId": "null"
+                    "delegatedSubnetResourceId": "[json('null')]",
+                    "privateDnsZoneArmResourceId": "[json('null')]"
                 },
 
                 "storage": {
