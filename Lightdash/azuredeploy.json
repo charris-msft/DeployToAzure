@@ -217,7 +217,21 @@
                 "administratorLogin": "[parameters('administratorLogin')]",
                 "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
                 "createMode": "[parameters('createMode')]",
-                "publicNetworkAccess": "Enabled",
+                "resources": [
+                    {
+                        "name": "AllowAllWindowsAzureIps",
+                        "type": "firewallrules",
+                        "location": "[resourceGroup().location]",
+                        "apiVersion": "2021-06-01",
+                        "dependsOn": [
+                            "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', parameters('databaseName'))]"
+                        ],
+                        "properties": {
+                            "startIpAddress": "x.x.x.x",
+                            "endIpAddress": "x.x.x.x"
+                        }
+                    }
+                ],
                 "storage": {
                     "storageSizeGB": 32
                 },
