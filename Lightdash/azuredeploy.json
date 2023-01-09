@@ -218,20 +218,6 @@
                 "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
                 "createMode": "[parameters('createMode')]",
                 "resources": [
-                    {
-                        // Reference: https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers/firewallrules?pivots=deployment-language-arm-template
-                        "name": "AllowAllWindowsAzureIps",
-                        "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
-                        "location": "[resourceGroup().location]",
-                        "apiVersion": "2021-06-01",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', parameters('databaseName'))]"
-                        ],
-                        "properties": {
-                            "startIpAddress": "0.0.0.0",
-                            "endIpAddress": "0.0.0.0"
-                        }
-                    }
                 ],
                 "storage": {
                     "storageSizeGB": 32
@@ -275,6 +261,22 @@
             "dependsOn": [
                 "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', parameters('databaseName'))]"
             ]
+        },
+        {
+            // Reference: 
+            //  https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers/firewallrules?pivots=deployment-language-arm-template
+            //  https://github.com/Azure/azure-quickstart-templates/blob/faa5fedf05fb99307d7793624b98f780764ba54b/application-workloads/mahara/mahara-autoscale-cache/nested/postgres.json
+            "name": "[concat(parameters('databaseName'),'/AllowAllAzureIps')]",
+            "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2021-06-01",
+            "dependsOn": [
+                "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', parameters('databaseName'))]"
+            ],
+            "properties": {
+                "startIpAddress": "0.0.0.0",
+                "endIpAddress": "0.0.0.0"
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces",
